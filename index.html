@@ -1,17 +1,12 @@
-# PlanckBit - Responsive Portfolio for Nitish Singh
-
-Here's a complete implementation for Nitish Singh's AI educator portfolio website with all the requested features:
-
-```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Nitish Singh | PlanckBit - AI Educator</title>
+<title>Akash Sharma | PlanckBit - AI Educator</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Raleway:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <style>
         :root {
             --primary: #6c63ff;
@@ -423,6 +418,66 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
             background: linear-gradient(45deg, var(--primary), var(--secondary));
         }
 
+        /* About Section */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-text {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
         /* Videos Section */
         .videos-grid {
             display: grid;
@@ -584,6 +639,7 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
             height: 60px;
             margin-bottom: 1rem;
             object-fit: contain;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
         }
 
         .tool-title {
@@ -663,6 +719,16 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
             padding: 1.5rem;
         }
 
+        .blog-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
         .blog-title {
             font-size: 1.2rem;
             font-weight: 600;
@@ -699,9 +765,14 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
             transform: translateX(5px);
         }
 
+        .blog-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
         /* Contact Section */
         .contact-container {
-            max-width: 600px;
+            max-width: 1000px;
             margin: 0 auto;
             background: var(--glass-dark);
             backdrop-filter: blur(10px);
@@ -732,11 +803,70 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
             opacity: 0.7;
         }
 
+        .contact-methods {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
         .contact-title {
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
             text-align: center;
+        }
+
+        .contact-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .contact-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
         }
 
         .form-group {
@@ -952,6 +1082,31 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
             transform: translateY(-5px);
         }
 
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
         /* Animations */
         @keyframes float {
             0% {
@@ -1065,6 +1220,14 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
                 height: 250px;
             }
 
+            .about-container, .contact-methods {
+                flex-direction: column;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
             .section {
                 padding: 4rem 5%;
             }
@@ -1076,6 +1239,14 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
 
             .contact-container {
                 padding: 2rem;
+            }
+            
+            .whatsapp-btn {
+                bottom: 90px;
+                left: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
             }
         }
 
@@ -1097,6 +1268,10 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
                 height: 200px;
             }
 
+            .about-stats {
+                flex-direction: column;
+            }
+
             .section-title {
                 font-size: 1.8rem;
             }
@@ -1112,11 +1287,12 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
     </style>
 </head>
 <body>
-<!-- Navigation -->
+        <!-- Navigation -->
 <nav class="navbar">
 <a class="logo" href="#">Planck<span>Bit</span></a>
 <div class="nav-links">
 <a href="#home">Home</a>
+<a href="#about">About</a>
 <a href="#videos">Videos</a>
 <a href="#tools">AI Tools</a>
 <a href="#blog">Blog</a>
@@ -1125,19 +1301,20 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
 <div class="nav-actions">
 <div class="search-container">
 <button class="search-btn"><i class="fas fa-search"></i></button>
-<input class="search-bar" placeholder="Search..." type="text"/>
+<input class="search-bar" placeholder="Search tutorials..." type="text"/>
 </div>
 <button class="theme-toggle"><i class="fas fa-moon"></i></button>
 <button class="menu-toggle"><i class="fas fa-bars"></i></button>
 </div>
 </nav>
+
 <!-- Hero Section -->
 <section class="hero" id="home">
 <div class="hero-content">
-<h1 class="hero-title">Nitish Singh</h1>
+<h1 class="hero-title">Akash Sharma</h1>
 <h2 class="hero-subtitle">AI Educator &amp; Content Creator</h2>
 <p class="hero-description">
-                Welcome to PlanckBit! I'm Nitish Singh, an AI expert passionate about teaching machine learning, 
+                Welcome to PlanckBit! I'm Akash Sharma, an AI expert passionate about teaching machine learning, 
                 deep learning, and cutting-edge AI technologies. Join me on this journey to democratize AI education.
             </p>
 <div class="social-icons">
@@ -1152,14 +1329,48 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
 <div class="hero-image">
 <div class="profile-container">
 <div class="glowing-circle"></div>
-<img alt="Nitish Singh" class="profile-pic" src="pro.jpg"/>
+<img alt="Akash Sharma" class="profile-pic" src="https://i.ibb.co/HD4f3x53/1a57f2f2-7743-4ca8-9c69-bbacf5e28f55.png"/>
 <div class="badge">AI Expert</div>
 </div>
 </div>
 </section>
+
+<!-- About Section -->
+<section class="section" id="about">
+<h2 class="section-title">About Akash Sharma</h2>
+<div class="about-container">
+<div class="about-content">
+<h3 class="about-subtitle">Democratizing AI Education</h3>
+<p class="about-text">
+                    Akash Sharma is the founder of PlanckBit with over 5 years of experience in machine learning and deep learning. 
+                    He has worked with leading tech companies and now focuses on creating high-quality educational content to make 
+                    AI accessible to everyone. Akash's mission is to bridge the gap between complex AI concepts and practical 
+                    implementation through clear, engaging tutorials.
+                </p>
+<div class="about-stats">
+<div class="stat-item">
+<div class="stat-number">3.3k+</div>
+<div class="stat-label">Students</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">100+</div>
+<div class="stat-label">Tutorials</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">2L+</div>
+<div class="stat-label">Views</div>
+</div>
+</div>
+</div>
+<div class="about-image">
+<img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Akash Sharma">
+</div>
+</div>
+</section>
+
 <!-- Videos Section -->
 <section class="section" id="videos">
-<h2 class="section-title">Latest Tutorials</h2>
+<h2 class="section-title">Latest Tutorials by Akash</h2>
 <div class="videos-grid">
 <!-- Video Card 1 -->
 <div class="video-card">
@@ -1170,9 +1381,10 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
 <div class="video-info">
 <h3 class="video-title">Neural Networks Explained</h3>
 <p class="video-description">Learn how neural networks work from scratch with Python implementation.</p>
-<a class="watch-btn" href="#">Watch Now</a>
+<a class="watch-btn" href="https://youtu.be/aircAruvnKk" target="_blank">Watch Now</a>
 </div>
 </div>
+
 <!-- Video Card 2 -->
 <div class="video-card">
 <div class="video-thumbnail">
@@ -1182,9 +1394,10 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
 <div class="video-info">
 <h3 class="video-title">Large Language Models Demystified</h3>
 <p class="video-description">Understanding transformers and how LLMs like GPT work under the hood.</p>
-<a class="watch-btn" href="#">Watch Now</a>
+<a class="watch-btn" href="https://youtu.be/zjkBMFhNj_g" target="_blank">Watch Now</a>
 </div>
 </div>
+
 <!-- Video Card 3 -->
 <div class="video-card">
 <div class="video-thumbnail">
@@ -1194,9 +1407,420 @@ Here's a complete implementation for Nitish Singh's AI educator portfolio websit
 <div class="video-info">
 <h3 class="video-title">Computer Vision with PyTorch</h3>
 <p class="video-description">Build image classification models using convolutional neural networks.</p>
-<a class="watch-btn" href="#">Watch Now</a>
+<a class="watch-btn" href="https://youtu.be/EoEd7dGqjJg" target="_blank">Watch Now</a>
 </div>
 </div>
+
+<!-- Video Card 4 -->
+<div class="video-card">
+<div class="video-thumbnail">
+<img alt="Reinforcement Learning" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"/>
+<div class="play-icon"><i class="fas fa-play"></i></div>
+</div>
+<div class="video-info">
+<h3 class="video-title">Reinforcement Learning Basics</h3>
+<p class="video-description">Introduction to Q-learning and Deep Q Networks with practical examples.</p>
+<a class="watch-btn" href="https://youtu.be/JgvyzIkgxF0" target="_blank">Watch Now</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- AI Tools Section -->
+<section class="section" id="tools">
+<h2 class="section-title">Popular AI Tools Recommended by Akash</h2>
+<div class="tools-grid">
+<!-- Tool 1 -->
+<div class="tool-card">
+<div class="tool-number">01</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/240px-ChatGPT_logo.svg.png" alt="ChatGPT" class="tool-logo">
+<h3 class="tool-title">ChatGPT</h3>
+<p class="tool-description">Advanced AI chatbot by OpenAI that understands and generates human-like text based on prompts.</p>
+<a href="https://chat.openai.com" class="visit-btn" target="_blank">Visit Website</a>
+</div>
+
+<!-- Tool 2 -->
+<div class="tool-card">
+<div class="tool-number">02</div>
+<img src="https://seeklogo.com/images/D/deepseek-logo-5E8C6FE01C-seeklogo.com.png" alt="DeepSeek" class="tool-logo">
+<h3 class="tool-title">DeepSeek</h3>
+<p class="tool-description">Powerful AI assistant for coding, debugging, and explaining complex programming concepts.</p>
+<a href="https://deepseek.com" class="visit-btn" target="_blank">Visit Website</a>
+</div>
+
+<!-- Tool 3 -->
+<div class="tool-card">
+<div class="tool-number">03</div>
+<img src="https://leonardo.ai/logo192.png" alt="Leonardo AI" class="tool-logo">
+<h3 class="tool-title">Leonardo AI</h3>
+<p class="tool-description">AI-powered image generation tool that creates stunning visuals from text descriptions.</p>
+<a href="https://leonardo.ai" class="visit-btn" target="_blank">Visit Website</a>
+</div>
+
+<!-- Tool 4 -->
+<div class="tool-card">
+<div class="tool-number">04</div>
+<img src="https://elevenlabs.io/favicon.ico" alt="ElevenLabs" class="tool-logo">
+<h3 class="tool-title">ElevenLabs</h3>
+<p class="tool-description">Cutting-edge text-to-speech platform with realistic human-like voice generation.</p>
+<a href="https://elevenlabs.io" class="visit-btn" target="_blank">Visit Website</a>
+</div>
+
+<!-- Tool 5 -->
+<div class="tool-card">
+<div class="tool-number">05</div>
+<img src="https://www.midjourney.com/favicon.ico" alt="Midjourney" class="tool-logo">
+<h3 class="tool-title">Midjourney</h3>
+<p class="tool-description">AI art generator that creates unique images from textual descriptions via Discord.</p>
+<a href="https://www.midjourney.com" class="visit-btn" target="_blank">Visit Website</a>
+</div>
+
+<!-- Tool 6 -->
+<div class="tool-card">
+<div class="tool-number">06</div>
+<img src="https://runwayml.com/favicon.ico" alt="Runway ML" class="tool-logo">
+<h3 class="tool-title">Runway ML</h3>
+<p class="tool-description">Creative suite with AI tools for video editing, image generation, and 3D modeling.</p>
+<a href="https://runwayml.com" class="visit-btn" target="_blank">Visit Website</a>
+</div>
+</div>
+</section>
+
+<!-- Blog Section -->
+<section class="section" id="blog">
+<h2 class="section-title">Akash's Blog</h2>
+<div class="blog-grid">
+<!-- Blog Post 1 -->
+<div class="blog-card">
+<div class="blog-image">
+<img src="https://images.unsplash.com/photo-1664575198271-269a08adf48b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="AI Trends">
+</div>
+<div class="blog-content">
+<span class="blog-category">AI Trends</span>
+<h3 class="blog-title">Top AI Trends to Watch in 2024</h3>
+<p class="blog-excerpt">Explore the most exciting developments in artificial intelligence that will shape the coming year.</p>
+<a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+
+<!-- Blog Post 2 -->
+<div class="blog-card">
+<div class="blog-image">
+<img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="LLM Guide">
+</div>
+<div class="blog-content">
+<span class="blog-category">Guides</span>
+<h3 class="blog-title">Getting Started with Large Language Models</h3>
+<p class="blog-excerpt">A comprehensive beginner's guide to understanding and working with LLMs like GPT-4.</p>
+<a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+
+<!-- Blog Post 3 -->
+<div class="blog-card">
+<div class="blog-image">
+<img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Career Advice">
+</div>
+<div class="blog-content">
+<span class="blog-category">Career</span>
+<h3 class="blog-title">Building a Career in AI: Akash's Journey</h3>
+<p class="blog-excerpt">Learn how Akash Sharma built his career in artificial intelligence and his tips for newcomers.</p>
+<a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-cta">
+<a href="#" class="cta-button">View All Articles</a>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section class="section" id="contact">
+<h2 class="section-title">Contact Akash Sharma</h2>
+<div class="contact-container">
+<div class="contact-methods">
+<div class="contact-info">
+<h3 class="contact-subtitle">Contact Information</h3>
+<div class="contact-item">
+<i class="fas fa-envelope"></i>
+<span>akash@planckbit.com</span>
+</div>
+<div class="contact-item">
+<i class="fas fa-phone"></i>
+<span>+91 98765 43210</span>
+</div>
+<div class="contact-item">
+<i class="fas fa-map-marker-alt"></i>
+<span>Bangalore, India</span>
+</div>
+<div class="contact-social">
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+<div class="contact-form">
+<h3 class="contact-subtitle">Send me a message</h3>
+<form id="contactForm">
+<div class="form-group">
+<label for="name">Full Name</label>
+<input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+</div>
+<div class="form-group">
+<label for="email">Email Address</label>
+<input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+</div>
+<div class="form-group">
+<label for="message">Your Message</label>
+<textarea id="message" class="form-control" rows="5" placeholder="Type your message here..." required></textarea>
+</div>
+<button type="submit" class="submit-btn">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-column">
+<a href="#" class="footer-logo">Planck<span>Bit</span></a>
+<p class="footer-about">Democratizing AI education through accessible tutorials, resources, and cutting-edge content by Akash Sharma.</p>
+<div class="footer-social">
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+
+<div class="footer-column">
+<h4 class="footer-title">Quick Links</h4>
+<ul class="footer-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About Akash</a></li>
+<li><a href="#videos">Tutorials</a></li>
+<li><a href="#tools">AI Tools</a></li>
+<li><a href="#blog">Blog</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+
+<div class="footer-column">
+<h4 class="footer-title">Contact Info</h4>
+<div class="footer-contact-info">
+<i class="fas fa-envelope"></i>
+<span>akash@planckbit.com</span>
+</div>
+<div class="footer-contact-info">
+<i class="fas fa-phone"></i>
+<span>+91 98765 43210</span>
+</div>
+<div class="footer-contact-info">
+<i class="fas fa-map-marker-alt"></i>
+<span>Bangalore, India</span>
+</div>
+</div>
+</div>
+
+<div class="footer-bottom">
+<p>&copy; 2023 PlanckBit. All Rights Reserved. | Designed with ❤️ by Akash Sharma</p>
+</div>
+</footer>
+
+<!-- Back to Top Button -->
+<div class="back-to-top">
+<i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+        // Initialize Particles.js
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#6c63ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#6c63ff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            }
+        });
+
+        // Mobile Menu Toggle - Fixed
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
             
-            &lt;!-- Video
-</div></section></body></html>
+            // Toggle body overflow when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                !menuToggle.contains(e.target) && 
+                !navLinks.contains(e.target) && 
+                navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Theme Toggle with localStorage
+        const themeToggle = document.querySelector('.theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme preference or use system preference
+        const currentTheme = localStorage.getItem('theme') || 
+                           (prefersDarkScheme.matches ? 'dark' : 'light');
+        
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const theme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem('theme', theme);
+            
+            if (theme === 'light') {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        // Search Functionality
+        const searchBtn = document.querySelector('.search-btn');
+        const searchBar = document.querySelector('.search-bar');
+        
+        searchBtn.addEventListener('click', () => {
+            searchBar.classList.toggle('active');
+            if (searchBar.classList.contains('active')) {
+                searchBar.focus();
+            }
+        });
+
+        // Close search when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchBtn.contains(e.target) && !searchBar.contains(e.target)) {
+                searchBar.classList.remove('active');
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Validate form
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            setTimeout(() => {
+                alert(`Thank you ${name}! Your message has been sent to Akash Sharma. We'll contact you at ${email} soon.`);
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }, 1500);
+        });
+
+                // Video Play Button Animation
+        document.querySelectorAll('.video-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('.watch-btn')) return;
+                const videoLink = card.querySelector('.watch-btn').href;
+                window.open(videoLink, '_blank');
+            });
+        });
+
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
